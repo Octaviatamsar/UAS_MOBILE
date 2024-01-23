@@ -1,0 +1,32 @@
+import 'package:news_app_2110020068/model/sourch_model.dart';
+
+class Article {
+  Source source;
+  String author;
+  String title;
+  String description;
+  String url;
+  String urlToImage;
+  String publishedAt;
+  String content;
+
+  Article(
+      {
+        required this.source, required this.author, required this.title, required this.description,
+        required this.url, required this.urlToImage, required this.publishedAt, required this.content
+      }
+      );
+      
+  factory Article.fromJson(Map<String, dynamic> json) {
+    return Article(
+      source: Source.fromJson(json['source'] ?? {}),
+      author: json['author'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      description: json['description'] as String? ?? '',
+      url: json['url'] as String? ?? '',
+      urlToImage: json['urlToImage'] as String? ?? 'https://tse4.mm.bing.net/th?id=OIP.DYQW0VqDgpPKvY4T-RqtrAHaGo&pid=Api&P=0&h=220',
+      publishedAt: json['publishedAt'] as String? ?? '',
+      content: json['content'] as String? ?? '',
+    );
+  }
+}
